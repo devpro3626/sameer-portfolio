@@ -1,0 +1,178 @@
+import type { ProjectEntry } from "./types";
+
+export const featuredProjects: ProjectEntry[] = [
+  {
+    slug: "leadflow-ai",
+    title: "LeadFlow AI",
+    tagline: "AI receptionist & CRM for service businesses",
+    category: "saas",
+    featured: true,
+    summary:
+      "A multi-tenant SaaS that pairs an AI receptionist with a full CRM, so service businesses can qualify leads, answer calls and book work from one dashboard.",
+    overview: [
+      "LeadFlow AI combines an AI receptionist with lead management, a unified inbox, scheduling, voice calling and subscription billing. Businesses configure what the receptionist knows, and it handles first contact, qualifies the lead and hands over to a human when needed.",
+      "The platform is strictly multi-tenant, with organisation-level data isolation, four permission roles and server-side validation, encrypted credentials and audit logging throughout.",
+    ],
+    highlights: [
+      "AI receptionist with configurable business knowledge and automated replies",
+      "Unified SMS and email inbox with live AI-to-human handoff",
+      "Twilio inbound and outbound calling with history and recordings",
+      "Role-based access for Owners, Admins, Managers and Agents",
+      "Stripe subscriptions with usage tracking and promo support",
+      "Real-time KPIs, activity timelines and automated follow-up tasks",
+    ],
+    stack: ["React", "TypeScript", "Hono", "tRPC", "MySQL", "Drizzle ORM", "Twilio", "Stripe", "OpenAI"],
+    shots: [
+      [1165, 807],
+      [1132, 794],
+      [1032, 719],
+      [1096, 766],
+      [1188, 781],
+      [1120, 733],
+    ],
+  },
+  {
+    slug: "profitbot-ai",
+    title: "ProfitBot AI",
+    tagline: "Human-in-the-loop crypto trading platform",
+    category: "saas",
+    featured: true,
+    summary:
+      "A production trading platform that scans live crypto markets for setups and lets users approve every trade before it executes.",
+    overview: [
+      "ProfitBot continuously scans cryptocurrency markets for breakouts, VWAP reclaims, order blocks and liquidity sweeps. Instead of trading blindly, it surfaces each setup for one-click human approval.",
+      "Approved trades go to the broker as bracket orders with take-profit and stop-loss. Realised gains move into a separate Profit Vault, so profits are never put back at risk, with Stripe deposits and automated sweeps to linked bank accounts.",
+    ],
+    highlights: [
+      "Real-time market scanner across multiple technical setups",
+      "One-click human approval before any execution",
+      "Dynamic position sizing with per-trade risk limits",
+      "Alpaca bracket orders with take-profit and stop-loss",
+      "Profit Vault with configurable auto-sweep thresholds",
+      "Serverless production deployment with live monitoring",
+    ],
+    stack: ["Node.js", "JavaScript", "Alpaca API", "Coinbase API", "Stripe", "Plaid", "Vercel", "IONOS"],
+    links: [{ label: "Watch demo", href: "https://screenrec.com/share/1cLPniAsw0" }],
+    shots: [
+      [1898, 834],
+      [1901, 855],
+      [1384, 725],
+      [1583, 845],
+      [1609, 866],
+      [1616, 851],
+      [1646, 754],
+    ],
+  },
+  {
+    slug: "io-sky",
+    title: "IO SKY",
+    tagline: "Enterprise SaaS & AI workflow platform",
+    category: "saas",
+    featured: true,
+    summary:
+      "An enterprise platform for managing clients, projects, documents and workflows, modernised and taken to production with AI-assisted reporting.",
+    overview: [
+      "IO SKY gives organisations one place for clients, developers, bookings, projects, documents and reporting. I extended and hardened it for production, from authentication and tenancy to storage, notifications and deployment.",
+      "An AI Scan workflow turns uploaded material into client reports through provider-neutral, OpenAI-compatible APIs, while outbound webhooks are signed with HMAC-SHA256 and fully tracked.",
+    ],
+    highlights: [
+      "Multi-tenant isolation with Supabase RLS and API authorisation",
+      "OAuth / SSO, MFA and role-based access control",
+      "Document versioning, approvals, reviews and retention",
+      "AI Scan to client-report workflow with configurable LLM provider",
+      "HMAC-signed webhooks with delivery tracking",
+      "Automated tests, health checks and live monitoring",
+    ],
+    stack: ["React", "TypeScript", "Node.js", "Supabase", "PostgreSQL", "Railway", "OAuth / SSO", "Webhooks"],
+    shots: [
+      [1895, 831],
+      [1128, 769],
+      [844, 575],
+      [1335, 1981],
+    ],
+  },
+  {
+    slug: "lvls-studio",
+    title: "LVLS Studio",
+    tagline: "AI-powered video editing & creative automation",
+    category: "ai",
+    featured: true,
+    summary:
+      "A platform that turns raw footage into creator-ready edits using transcription, scene-aware AI and a frame-accurate FFmpeg render pipeline.",
+    overview: [
+      "LVLS Studio analyses word-level transcripts for pauses, filler words, stutters, false starts and retakes, then builds an editable timeline of keep and cut decisions with confidence scores and reasons.",
+      "Scene briefs let creators describe what each scene should achieve, and Gemini-powered visual analysis compares takes to find the stronger material. Style profiles control pacing, captions, music ducking, B-roll, zooms and branding. Exports target TikTok, Reels, Shorts and YouTube.",
+    ],
+    highlights: [
+      "Word-level transcription driving automated edit decisions",
+      "Scene-aware multi-video assembly with take comparison",
+      "Multimodal visual analysis with safe fallbacks",
+      "Reusable style profiles for pacing, captions and branding",
+      "FFmpeg pipeline with loudness normalisation and smart crop",
+      "Manual edits preserved across AI regeneration passes",
+    ],
+    stack: ["React", "TypeScript", "Node.js", "Python", "FFmpeg", "AssemblyAI", "Gemini", "Cloudflare R2"],
+    shots: [
+      [1916, 859],
+      [1891, 859],
+      [1897, 811],
+      [510, 487],
+    ],
+  },
+  {
+    slug: "minimoes",
+    title: "Minimoes",
+    tagline: "Conversational AI avatar platform",
+    category: "ai",
+    featured: true,
+    summary:
+      "A real-time 3D digital-twin platform with streamed AI conversations, synchronised speech and lip-synced facial animation.",
+    overview: [
+      "I took a partially working avatar platform to a stable production system. Responses stream in over Server-Sent Events, while audio playback, text rendering and avatar animation are coordinated independently through a dedicated speech state machine.",
+      "Lip sync is driven by real audio timestamps rather than estimates, and an embeddable widget brings the avatar to any website with text and voice queries. Mock analytics were replaced with real MongoDB-backed metrics and CSV export.",
+    ],
+    highlights: [
+      "Streaming AI conversations over SSE",
+      "Audio-synchronised text rendering with requestAnimationFrame",
+      "Blendshape lip sync aligned to real playback timing",
+      "Embeddable avatar widget for external websites",
+      "Multi-step Create Twin flow: voice, avatar, knowledge, agent",
+      "Real analytics with latency metrics and feedback tracking",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "MongoDB", "WebSockets", "SSE", "3D Avatars"],
+    links: [{ label: "Visit site", href: "https://minimoes.com/" }],
+    shots: [
+      [1267, 634],
+      [1896, 855],
+      [1267, 856],
+      [860, 878],
+    ],
+  },
+  {
+    slug: "legend",
+    title: "Legend",
+    tagline: "AI football performance & coaching platform",
+    category: "ai",
+    featured: true,
+    summary:
+      "Game-film analysis that gives players and coaches position-specific feedback, tracked from one game to the next.",
+    overview: [
+      "Legend lets players upload game film and receive AI coaching tailored to their position and age group. I extended it with persistent game history, so every analysis is compared with previous performances to reveal trends.",
+      "A dedicated coaches dashboard summarises team challenges, strengths, standout players and play-calling, and subscription tiers for players, coaches and programmes gate features cleanly.",
+    ],
+    highlights: [
+      "Gemini-powered film analysis with a coaching persona",
+      "Age-appropriate, position-specific benchmarks",
+      "Automatic game-to-game comparisons and trends",
+      "Dedicated QB statistics tracking",
+      "Coaches dashboard with play-calling analysis",
+      "Player, Coach and Program subscription tiers",
+    ],
+    stack: ["React", "JavaScript", "Gemini API", "Supabase Storage", "Video Processing"],
+    shots: [
+      [1919, 861],
+      [1600, 964],
+      [1600, 1035],
+    ],
+  },
+];

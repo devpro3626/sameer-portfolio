@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+:root {
+  --background: #080a0f;
+  --surface: #0e1118;
+  --surface-raised: #141925;
+  --border: rgb(148 163 184 / 0.12);
+  --border-strong: rgb(148 163 184 / 0.22);
+  --foreground: #e8ebf1;
+  --muted: #8e98aa;
+  --subtle: #5d6679;
+  --accent: #6b8cff;
+  --accent-soft: rgb(107 140 255 / 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-jakarta);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee-x: marquee-x var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-y: marquee-y var(--marquee-duration, 40s) linear infinite;
+  --animate-spin-slow: spin 5s linear infinite;
+  --animate-spin-slower: spin 18s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-heartbeat: heartbeat 1.4s ease-in-out infinite;
+  --animate-write: write 4.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  --animate-arrow-drop: arrow-drop 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  --animate-ring-pulse: ring-pulse 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  --animate-tick: spin 60s steps(60) infinite;
+  --animate-beam: beam 6s ease-in-out infinite;
+  --animate-dash: dash 1.2s linear infinite;
+  --animate-pulse-x: pulse-x var(--pulse-duration, 10s) linear infinite;
+  --animate-pulse-y: pulse-y var(--pulse-duration, 10s) linear infinite;
+  --animate-node-glow: node-glow var(--pulse-duration, 10s) linear infinite;
+
+  @keyframes write {
+    0% {
+      transform: scaleX(0);
+      opacity: 1;
+    }
+    25%,
+    80% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes arrow-drop {
+    0% {
+      transform: translateY(-150%);
+      opacity: 0;
+    }
+    30%,
+    65% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(150%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ring-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    70%,
+    100% {
+      transform: scale(1.65);
+      opacity: 0;
+    }
+  }
+
+  @keyframes heartbeat {
+    0%,
+    40%,
+    100% {
+      transform: scale(1);
+    }
+    15% {
+      transform: scale(1.25);
+    }
+    25% {
+      transform: scale(1.05);
+    }
+    32% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes beam {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  @keyframes pulse-x {
+    from {
+      left: 0%;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes pulse-y {
+    from {
+      top: 0%;
+    }
+    to {
+      top: 100%;
+    }
+  }
+
+  @keyframes node-glow {
+    0%,
+    14%,
+    100% {
+      border-color: var(--border-strong);
+      color: var(--muted);
+      box-shadow: none;
+    }
+    2%,
+    8% {
+      border-color: var(--accent);
+      color: var(--foreground);
+      box-shadow:
+        0 0 0 6px var(--accent-soft),
+        0 0 32px rgb(107 140 255 / 0.35);
+    }
+  }
+
+  @keyframes marquee-x {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-y {
+    to {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+@utility fade-edges-x {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@utility fade-edges-y {
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
+@layer base {
+  html {
+    background: var(--background);
+    color: var(--foreground);
+    color-scheme: dark;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-jakarta), system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
