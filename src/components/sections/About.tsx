@@ -14,13 +14,13 @@ const focusAreas = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32">
+    <section id="about" className="py-16 md:py-32">
       <div className="container-page grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
+        <Reveal className="relative mx-auto w-full max-w-md min-w-0 lg:col-span-5 lg:max-w-none">
           <AboutPortrait name={profile.name} />
         </Reveal>
 
-        <div className="flex flex-col gap-8 lg:col-span-7">
+        <div className="flex min-w-0 flex-col gap-8 lg:col-span-7">
           <SectionHeading
             eyebrow="About me"
             title="Engineering products end to end, from the first schema to the final deploy"

@@ -217,6 +217,10 @@
     letter-spacing: -0.025em;
   }
 
+  :where(.grid) > * {
+    min-width: 0;
+  }
+
   ::selection {
     background: var(--accent);
     color: white;

@@ -29,7 +29,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-16 md:py-32">
       <div className="container-page">
         <Reveal className="relative overflow-hidden rounded-[2rem] border border-border-strong bg-surface">
           <div

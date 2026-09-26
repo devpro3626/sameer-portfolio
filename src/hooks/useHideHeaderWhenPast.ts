@@ -7,17 +7,16 @@ export function useHideHeaderWhenPast(sentinel: RefObject<HTMLElement | null>, o
   const { setHidden } = useHeaderVisibility();
 
   useEffect(() => {
-    const element = sentinel.current;
-    if (!element) return;
+    const update = () => {
+      const element = sentinel.current;
+      if (element) setHidden(element.getBoundingClientRect().top < offset);
+    };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setHidden(!entry.isIntersecting && entry.boundingClientRect.top < offset),
-      { rootMargin: `-${offset}px 0px 0px 0px` },
-    );
-    observer.observe(element);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", update);
       setHidden(false);
     };
   }, [sentinel, offset, setHidden]);

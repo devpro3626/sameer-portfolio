@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex flex-1 items-center overflow-hidden pt-32 pb-16 md:pt-36 md:pb-20"
+      className="relative flex flex-1 items-center overflow-hidden pt-28 pb-12 md:pt-36 md:pb-20"
     >
       <div
         aria-hidden
@@ -34,7 +34,7 @@ export function Hero() {
             Available for new projects
           </span>
 
-          <h1 className="text-[2.35rem] leading-[1.1] font-semibold sm:text-5xl lg:text-[3.3rem]">
+          <h1 className="text-[clamp(1.85rem,8.6vw,2.35rem)] leading-[1.1] font-semibold sm:text-5xl lg:text-[3.3rem]">
             I build <br className="sm:hidden" />
             <TextMorph words={buildWords} className="text-accent" />
             <br />
@@ -52,7 +52,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-1 flex w-full max-w-lg flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-6">
+          <div className="mt-1 grid w-full max-w-lg grid-cols-3 items-center gap-x-4 gap-y-5 border-t border-border pt-6 sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-4">
             {profile.stats.map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-xl font-semibold">
@@ -62,7 +62,7 @@ export function Hero() {
                 <p className="text-xs text-muted">{stat.label}</p>
               </div>
             ))}
-            <div className="flex gap-2 sm:ml-auto">
+            <div className="col-span-3 flex gap-2 sm:ml-auto">
               {profile.socials.map((social) => {
                 const Icon = socialIcons[social.label as keyof typeof socialIcons];
                 return (
@@ -85,7 +85,7 @@ export function Hero() {
         <Reveal
           immediate
           delay={0.2}
-          className="relative mx-auto w-full max-w-[22rem] lg:col-span-5 lg:mr-0 lg:max-w-[24rem]"
+          className="relative mx-auto hidden w-full max-w-[22rem] lg:col-span-5 lg:mr-0 lg:block lg:max-w-[24rem]"
         >
           <HeroPortrait name={profile.name} location={profile.location} />
 

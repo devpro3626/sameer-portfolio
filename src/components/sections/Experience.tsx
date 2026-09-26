@@ -6,7 +6,7 @@ import { certifications, education, experience } from "@/content/experience";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 md:py-32">
+    <section id="experience" className="py-16 md:py-32">
       <div className="container-page grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <SectionHeading

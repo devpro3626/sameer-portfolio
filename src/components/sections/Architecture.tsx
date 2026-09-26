@@ -26,7 +26,7 @@ const connections = [
 
 export function Architecture() {
   return (
-    <section id="architecture" className="py-24 md:py-32">
+    <section id="architecture" className="py-16 md:py-32">
       <div className="container-page">
         <SectionHeading
           align="center"

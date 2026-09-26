@@ -91,5 +91,8 @@ export interface SkillGroup {
   items: string[];
 }
 
-export type NavItem =
-  { label: string; id: string; href?: never } | { label: string; href: string; id?: never };
+export type NavIcon = "about" | "services" | "work" | "experience" | "reviews" | "projects";
+
+type NavTarget = { id: string; href?: never } | { href: string; id?: never };
+
+export type NavItem = NavTarget & { label: string; icon: NavIcon };

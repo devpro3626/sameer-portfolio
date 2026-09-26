@@ -8,12 +8,15 @@ import { ProjectsWall } from "@/components/sections/ProjectsWall";
 import { Services } from "@/components/sections/Services";
 import { TechStack } from "@/components/sections/TechStack";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllProjects, getFeaturedProjects } from "@/lib/projects";
+import { personSchema, websiteSchema } from "@/lib/structuredData";
 
 export default function HomePage() {
   return (
     <>
-      <div className="flex flex-col lg:min-h-svh">
+      <JsonLd data={[personSchema(), websiteSchema()]} />
+      <div className="flex min-h-svh flex-col">
         <Hero />
         <TechStack />
       </div>

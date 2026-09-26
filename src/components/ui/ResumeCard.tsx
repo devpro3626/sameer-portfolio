@@ -31,7 +31,7 @@ export function ResumeCard({ href }: { href: string }) {
 
         <span className="min-w-0 flex-1">
           <span className="block font-medium">Download my résumé</span>
-          <span className="block truncate text-sm text-muted">
+          <span className="block text-sm text-muted sm:truncate">
             Experience, projects and skills in one page
           </span>
         </span>

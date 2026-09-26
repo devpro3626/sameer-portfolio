@@ -16,7 +16,7 @@ export function Testimonials() {
   const columns = splitIntoColumns(testimonials, 3);
 
   return (
-    <section id="testimonials" className="py-24 md:py-32">
+    <section id="testimonials" className="py-16 md:py-32">
       <div className="container-page">
         <SectionHeading
           align="center"

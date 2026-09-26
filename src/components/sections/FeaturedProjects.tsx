@@ -54,7 +54,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   );
 
   return (
-    <section ref={ref} id="work" className="py-24 md:py-32">
+    <section ref={ref} id="work" className="py-16 md:py-32">
       <div className="container-page">
         <SectionHeading
           eyebrow="Featured work"

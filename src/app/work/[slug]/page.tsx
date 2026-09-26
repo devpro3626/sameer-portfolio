@@ -5,7 +5,9 @@ import { ProjectGallery } from "@/components/project/ProjectGallery";
 import { ProjectHeader } from "@/components/project/ProjectHeader";
 import { ProjectOverview } from "@/components/project/ProjectOverview";
 import { ReadingProgress } from "@/components/project/ReadingProgress";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllProjects, getNextProject, getProjectBySlug, getProjectIndex } from "@/lib/projects";
+import { projectSchema } from "@/lib/structuredData";
 
 export const dynamicParams = false;
 
@@ -18,14 +20,21 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
   const project = getProjectBySlug(slug);
   if (!project) return {};
 
+  const images = project.images[0] ? [project.images[0].src] : undefined;
+
   return {
-    title: project.title,
+    title: `${project.title} — ${project.tagline}`,
     description: project.summary,
+    keywords: [project.title, ...project.stack],
+    alternates: { canonical: `/work/${project.slug}` },
     openGraph: {
       title: project.title,
       description: project.summary,
-      images: project.images[0] ? [project.images[0].src] : undefined,
+      url: `/work/${project.slug}`,
+      type: "article",
+      images,
     },
+    twitter: { card: "summary_large_image", title: project.title, description: project.summary, images },
   };
 }
 
@@ -37,6 +46,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
 
   return (
     <>
+      <JsonLd data={projectSchema(project)} />
       <ReadingProgress />
       <ProjectHeader project={project} position={getProjectIndex(slug)} total={getAllProjects().length} />
       <ProjectOverview project={project} />

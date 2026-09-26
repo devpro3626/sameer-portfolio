@@ -26,7 +26,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="py-24 md:py-32"
+      className="py-16 md:py-32"
       style={{ "--pulse-duration": `${PULSE_SECONDS}s` } as CSSProperties}
     >
       <div className="container-page">
